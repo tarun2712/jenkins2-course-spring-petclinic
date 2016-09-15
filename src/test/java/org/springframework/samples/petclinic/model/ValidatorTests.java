@@ -31,14 +31,14 @@ public class ValidatorTests {
         LocaleContextHolder.setLocale(Locale.ENGLISH);
         Person person = new Person();
         person.setFirstName("");
-        person.setLastName("smith");
+         person.setLastName("smith");
 
         Validator validator = createValidator();
         Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
 
         assertThat(constraintViolations.size()).isEqualTo(1);
         ConstraintViolation<Person> violation = constraintViolations.iterator().next();
-        assertThat(violation.getPropertyPath().toString()).isEqualTo("firstName");
+        assertThat(violation.getPropertyPath().toString()).isEqualTo("asdf");
         assertThat(violation.getMessage()).isEqualTo("may not be empty");
     }
 
